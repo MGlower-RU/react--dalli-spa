@@ -1,7 +1,43 @@
 @import 'reset';
+@import 'fonts';
+
+:root {
+  --white: #ffffff;
+  --black: #1E1E1E;
+  --sky-blue: #46B5FF;
+
+  --padding: 12rem;
+  --header-bg: rgba(255, 255, 255, .16);
+}
 
 body {
-  font-family: 'Roboto', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Nominee', sans-serif;
+  min-height: 400vh;
+  background-color: white;
+}
+
+.App {
+  background-color: white;
+}
+
+// remove
+.some-bg {
+  background: linear-gradient(90deg, #fff, #003582);
+  width: 100%;
+  height: 40rem;
+}
+.some-bg2 {
+  background: #fff;
+  width: 100%;
+  height: 40rem;
+}
+
+svg {
+  path, stop {
+    transition: all .3s ease-in-out;
+  }
+}
+
+a {
+  transition: all .3s ease-in-out;
 }

@@ -1,0 +1,142 @@
+.header__wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+header {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  padding: 2rem var(--padding);
+  background-color: var(--header-bg);
+  backdrop-filter: blur(8rem);
+  transition: all .3s ease-in-out;
+}
+
+header.header--white {
+  --header-bg: rgba(255, 255, 255, .64);
+  box-shadow: -2rem 2rem 8.4rem rgba(#002859, .02);
+
+  .header__logo svg {
+    path:not(:nth-of-type(3)) {
+      fill: var((--sky-blue));
+    }
+
+    stop {
+      &:first-of-type {
+        stop-color: var((--sky-blue));
+      }
+      &:last-of-type {
+        stop-color: #2788FF;
+      }
+    }
+  }
+
+  .header__nav li a {
+    color: var(--black);
+
+    &.active-link, &:hover, &:focus-visible {
+      color: var(--sky-blue);
+
+      &::after {
+        background-color: var(--sky-blue);
+      }
+    }
+  }
+
+  .header__phone {  
+    svg path {
+      fill: var(--sky-blue);
+    }
+  
+    a {
+      color: var(--black);
+
+      &:hover, &:focus-visible {
+        color: var(--sky-blue);
+      }
+    }
+  }
+}
+
+.header__logo {
+  display: flex;
+  width: 6.3rem;
+  height: 2.4rem;
+  margin-right: 4rem;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: 2.4rem;
+
+  li {
+    a {
+      display: flex;
+      position: relative;
+      color: var(--white);
+      font-weight: 500;
+      line-height: 1.5em;
+      letter-spacing: 0.02em;
+      font-size: 1.4rem;
+      padding-bottom: 1.5px;
+      transform: translateY(.2rem);
+      transition: all .3s ease-in-out;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 0.2rem;
+        background-color: transparent;
+        transition: all .3s ease-in-out;
+      }
+
+      &.active-link, &:hover, &:focus-visible {
+        font-weight: 700;
+
+        &::after {
+          background-color: var(--white);
+        }
+      }
+    }
+  }
+}
+
+.header__phone {
+  display: flex;
+  gap: .8rem;
+  margin-left: auto;
+
+  svg {
+    width: 1.6rem;
+    height: 1.6rem;
+
+    path {
+      fill: var(--white);
+    }
+  }
+
+  a {
+    color: var(--white);
+    font-weight: 700;
+    line-height: 1.5em;
+    letter-spacing: 0.02em;
+    font-size: 1.4rem;
+    cursor: pointer;
+
+    &:hover, &:focus-visible {
+      text-decoration: underline;
+    }
+  }
+}
