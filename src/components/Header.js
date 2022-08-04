@@ -92,31 +92,29 @@ export default function Header() {
         <div className="header__logo">
           <Logo />
         </div>
-        <div className="overlay">
-          <div className="header__nav__mobile__wrapper">
-            <div
-              className="header__nav__mobile__btn--close"
-              onClick={() => setMenuOpen(false)}
-            >
-              <span/><span/>
-            </div>
-            <ul
-              className="header__nav"
-              ref={navRef}
-            >
-              {
-                navItems.map(({name, id, link}) => (
-                  <li key={id}>
-                    <a
-                      href={`#${link}`}
-                      data-link={link}
-                      onClick={() => setCurrentSlide(link)}
-                    >{name}</a>
-                  </li>
-                ))
-              }
-            </ul>
+        <div className="header__nav__mobile__wrapper">
+          <div
+            className="header__nav__mobile__btn--close"
+            onClick={() => setMenuOpen(false)}
+          >
+            <span/><span/>
           </div>
+          <ul
+            className="header__nav"
+            ref={navRef}
+          >
+            {
+              navItems.map(({name, id, link}) => (
+                <li key={id}>
+                  <a
+                    href={`#${link}`}
+                    data-link={link}
+                    onClick={() => setCurrentSlide(link)}
+                  >{name}</a>
+                </li>
+              ))
+            }
+          </ul>
         </div>
         <div className="header__phone">
           <Phone />
