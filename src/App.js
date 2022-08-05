@@ -1,6 +1,7 @@
 import Footer from './components/Footer';
 import Header from './components/Header';
-import TextInput from './components/TextInput';
+import Main from './components/Main';
+import Rates from './components/Rates';
 
 import './styles/App.scss';
 
@@ -9,8 +10,9 @@ export default function App() {
     <>
       <div className="App">
         <Header />
+        <Main />
+        <Rates />
         <Footer />
-        <TextInput  />
       </div>
     </>
   );

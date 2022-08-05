@@ -1,43 +1,21 @@
-import { useEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import { ReactComponent as Logo } from '../images/logo.svg'
 import { ReactComponent as Phone } from '../images/phone.svg'
 
 import '../styles/header.scss'
 
+import { MainContext } from './MainContext'
+
 export default function Header() {
   const navRef = useRef(null)
   const headerRef = useRef(null)
 
-  const [currentSlide, setCurrentSlide] = useState('main')
+  const {
+    currentSlide,
+    setCurrentSlide,
+    linksArray
+  } = useContext(MainContext)
   const [menuOpen, setMenuOpen] = useState(false)
-
-  const navItems = [
-    {
-      name: 'Главная',
-      id: 'main',
-      link: 'main'
-    },
-    {
-      name: 'Показатели',
-      id: 'rates',
-      link: 'rates'
-    },
-    {
-      name: 'Тарифы',
-      id: 'tariffs',
-      link: 'tariffs'
-    },
-    {
-      name: 'Возможности',
-      id: 'features',
-      link: 'features'
-    },
-    {
-      name: 'Контакты',
-      id: 'contacts',
-      link: 'contacts'
-    },
-  ]
 
   useEffect(() => {
     [...navRef.current.children].forEach(el => {
@@ -104,7 +82,7 @@ export default function Header() {
             ref={navRef}
           >
             {
-              navItems.map(({name, id, link}) => (
+              linksArray.map(({name, id, link}) => (
                 <li key={id}>
                   <a
                     href={`#${link}`}
