@@ -1,4 +1,5 @@
 import React, { createContext, useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 
 export const MainContext = createContext();
 
@@ -33,10 +34,14 @@ export default function ContextComponent(props) {
     },
   ]
 
+  const isMobile = useMediaQuery({ query: '(max-width:1023px)' })
+  const isDesktop = useMediaQuery({ query: '(min-width:1440px)' })
+
   return (
     <MainContext.Provider value={{
       currentSlide, setCurrentSlide,
-      linksArray
+      linksArray,
+      isMobile, isDesktop
     }}>
       {props.children}
     </MainContext.Provider>

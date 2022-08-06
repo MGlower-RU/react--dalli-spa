@@ -1,0 +1,240 @@
+.rates__cards__wrapper {
+  width: 100%;
+  padding: 0 var(--padding);
+}
+
+.rates__cards--desktop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.8rem;
+  width: 100%;
+  transform: translateY(-8.2rem);
+}
+
+.rates__cards__item {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  border-radius: inherit;
+  background-color: var(--white);
+
+  &--gradient-border {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 28rem;
+    height: 32.4rem;
+    border-radius: 3.2rem;
+    background: linear-gradient(rgb(150, 214, 255), rgba(255, 255, 255, 0));
+  }
+
+  & > span {
+    display: flex;
+    position: absolute;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    filter: blur(12rem);
+  }
+
+  &--delivery-partners {
+    background: linear-gradient(135deg, rgba(0, 104, 255, .2), rgba(240, 243, 246, 0)) var(--white);
+
+    .rates__cards__item__main-image {
+      top: 32.5%;
+      width: 18.5rem;
+      height: 10rem;
+
+      img {
+        object-position: left;
+      }
+    }
+
+    span {
+      &:nth-of-type(1) {
+        bottom: -54%;
+        right: -16%;
+        width: 37.6rem;
+        background-color: #0047FF;
+      }
+      &:nth-of-type(2) {
+        top: -50%;
+        left: -60%;
+        width: 26.6rem;
+        background-color: #5B1EE9;
+      }
+      &:nth-of-type(3) {
+        right: -36.8%;
+        bottom: -38%;
+        width: 26.6rem;
+        background-color: #B8FBFF;
+      }
+    }
+  }
+
+  &--refund {
+    background: linear-gradient(135deg, rgba(83, 30, 209, .2), rgba(240, 243, 246, 0)) var(--white);
+
+    span {
+      &:nth-of-type(1) {
+        left: -17%;
+        bottom: -55%;
+        width: 37.6rem;
+        background-color: #0005FF;
+      }
+      &:nth-of-type(2) {
+        top: -21.6%;
+        right: -23.5%;
+        width: 26.6rem;
+        background-color: #9AE7FF;
+      }
+    }
+
+    .rates__cards__item__main-image {
+      &:nth-of-type(2) {
+        top: 20%;
+        left: 18%;
+        width: 12.4rem;
+        height: 11.7rem;
+      }
+      &:nth-of-type(1) {
+        top: 10%;
+        left: 43%;
+        width: 12.5rem;
+        height: 13.2rem;
+      }
+    }
+  }
+
+  &--delivery-close {
+    background: linear-gradient(135deg, rgba(0, 104, 255, .2), rgba(240, 243, 246, 0)) var(--white);
+
+    .rates__cards__item__main-image {
+      top: 9%;
+      left: 17%;
+      width: 18.2rem;
+      height: 16rem;
+    }
+
+    span {
+      &:nth-of-type(3) {
+        bottom: -75%;
+        right: -16%;
+        width: 37.6rem;
+        background-color: #0038FF;
+      }
+      &:nth-of-type(2) {
+        top: 6%;
+        left: 2.5%;
+        width: 26.6rem;
+        background-color: #C1F0FF;
+      }
+      &:nth-of-type(1) {
+        top: 65%;
+        left: 6%;
+        width: 26.6rem;
+        background-color: #5B1EE9;
+      }
+    }
+  }
+
+  &--delivery-offline {
+    background: linear-gradient(135deg, rgba(0, 41, 255, .2), rgba(240, 243, 246, 0)) var(--white);
+
+    .rates__cards__item__main-image {
+      &:first-of-type {
+        top: -5%;
+        left: 8%;
+        width: 12.4rem;
+        height: 11.7rem;
+        z-index: 2;
+      }
+      &:nth-of-type(2) {
+        top: 15%;
+        right: -7%;
+        width: 20rem;
+        height: 18rem;
+      }
+    }
+
+    span {
+      &:nth-of-type(1) {
+        right: -16%;
+        bottom: -55%;
+        width: 37.6rem;
+        background-color: #0005FF;
+        filter: blur(10rem);
+      }
+      &:nth-of-type(2) {
+        top: 9%;
+        left: 22.5%;
+        width: 26.6rem;
+        background-color: #BEFFFB;
+      }
+    }
+  }
+}
+
+.rates__cards__item__main-image {
+  position: absolute;
+  z-index: 2;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    user-select: none;
+  }
+}
+
+.rates__cards__item__content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 3.2rem;
+  z-index: 3;
+
+  p {
+    font-family: 'ObjectSans', sans-serif;
+    font-weight: 900;
+    font-size: 1.8rem;
+    line-height: 1.5em;
+    letter-spacing: 0.01em;
+    color: var(--white);
+    margin-top: auto;
+    order: 2;
+  }
+}
+
+.rates__cards__item__content__mini-cards {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  align-self: flex-end;
+  width: 100%;
+  gap: 1.2rem;
+}
+
+.rates__cards__item__content__mini-cards__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5.6rem;
+  height: 3.2rem;
+  overflow: hidden;
+  border-radius: 1.1rem;
+  background-color: var(--white);
+  border: .1rem solid #E5E9F6;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    min-height: 28%;
+    min-width: 50%;
+    object-fit: contain;
+    user-select: none;
+  }
+}
