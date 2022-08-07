@@ -9,7 +9,7 @@ export default function Main() {
   const { setCurrentSlide, isMobile } = useContext(MainContext)
 
   return (
-    <section id="main">
+    <section data-id="main">
       <div className="main__wrapper">
         <div className="main__text-content">
           <h3>

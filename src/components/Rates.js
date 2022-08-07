@@ -17,8 +17,26 @@ import pochtaRossii from '../images/pochta_russia.png'
 import post5 from '../images/5post.png'
 
 export default function Rates() {
-  const { isDesktop } = useContext(MainContext)
+  const { isMobile } = useContext(MainContext)
 
+  const ratesNumbersArray = [
+    {
+      header: 'Качество КС',
+      number: '98,5%'
+    },
+    {
+      header: 'Доставляемость',
+      number: '98%'
+    },
+    {
+      header: 'ONTIME',
+      number: '96,7%'
+    },
+    {
+      header: 'Выкуп',
+      number: '96%'
+    },
+  ]
   const cardsArray = [
     {
       description: 'Ежедневный возврат наложенных платежей',
@@ -48,11 +66,11 @@ export default function Rates() {
   ]
 
   return (
-    <section id="rates">
+    <section data-id="rates">
       <div className="rates__wrapper">
         <div className="rates__cards__wrapper">
           {
-            isDesktop ?
+            !isMobile ?
             <div className="rates__cards--desktop">
               {
                 cardsArray.map((el) => (
@@ -79,7 +97,19 @@ export default function Rates() {
             </p>
           </div>
           <div className="rates__text-content__right">
-
+            <span></span>
+            {
+              ratesNumbersArray.map((el, i) => (
+                <div key={i} className="rates__text-content__right__item">
+                  <div className="rates__text-content__right__item__header">
+                    {el.header}
+                  </div>
+                  <div className="rates__text-content__right__item__number">
+                    {el.number}
+                  </div>
+                </div>
+              ))
+            }
           </div>
         </div>
       </div>

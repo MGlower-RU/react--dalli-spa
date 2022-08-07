@@ -162,6 +162,8 @@ header.header--white {
     padding: 3.9rem .9rem 1.1rem 2rem;
 
     &.header--white {
+      --header-bg: rgba(255, 255, 255, .16);
+
       .header__nav__icon--mobile span {
         background-color: var(--sky-blue);
       }

@@ -146,6 +146,7 @@ input[type=text] {
 
 h2 {
   font-family: 'ObjectSans', sans-serif;
+  font-weight: 900;
   font-size: 4rem;
   line-height: 1.2em;
   color: var(--black);
@@ -161,6 +162,11 @@ h2 {
 @media(max-width: 1023px) {
   :root {
     --padding: 2rem;
+  }
+
+  h2 {
+    font-size: 2.4rem;
+    line-height: 1em;
   }
 
   .button {

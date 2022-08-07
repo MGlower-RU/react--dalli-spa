@@ -4,8 +4,7 @@ import './styles/index.scss';
 import App from './App';
 import ContextComponent from './components/MainContext';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ContextComponent>
       <App />
