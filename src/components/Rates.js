@@ -1,4 +1,6 @@
 import { useContext } from "react"
+import { Swiper, SwiperSlide } from "swiper/react"
+
 import { MainContext } from "./MainContext"
 
 import '../styles/rates.scss'
@@ -17,7 +19,7 @@ import pochtaRossii from '../images/pochta_russia.png'
 import post5 from '../images/5post.png'
 
 export default function Rates() {
-  const { isMobile } = useContext(MainContext)
+  const { isTablet, isMobile } = useContext(MainContext)
 
   const ratesNumbersArray = [
     {
@@ -67,50 +69,57 @@ export default function Rates() {
 
   return (
     <section data-id="rates">
-      <div className="rates__wrapper">
-        <div className="rates__cards__wrapper">
+      {
+        !isTablet ?
+        <div className="rates__cards--desktop">
           {
-            !isMobile ?
-            <div className="rates__cards--desktop">
-              {
-                cardsArray.map((el) => (
-                  <Card key={el.id} card={el} />
-                ))
-              }
-            </div>
-            :
-            <div className="rates__cards--mobile">
-
-            </div>
+            cardsArray.map((el) => (
+              <Card key={el.id} card={el} />
+            ))
           }
         </div>
-        <div className="rates__text-content">
-          <div className="rates__text-content__left">
-            <h2>
-              Dalli — это...
-            </h2>
-            <p>
-              Dalli — служба доставки для интернет-магазинов и омниритейла.
-            </p>
-            <p>
-              Основные принципы компании — безукоризненное качество и безупречный сервис. 
-            </p>
-          </div>
-          <div className="rates__text-content__right">
-            <span></span>
+        :
+        <div className="rates__cards--mobile">
+          <Swiper
+            spaceBetween={isMobile ? 10 : 20}
+            slidesPerView={isMobile ? 1 : 'auto'}
+          >
             {
-              ratesNumbersArray.map((el, i) => (
-                <div key={i} className="rates__text-content__right__item">
-                  <div className="rates__text-content__right__item__header">
-                    {el.header}
-                  </div>
-                  <div className="rates__text-content__right__item__number">
-                    {el.number}
-                  </div>
-                </div>
+              cardsArray.map((el) => (
+                <SwiperSlide key={el.id}>
+                  <Card card={el} />
+                </SwiperSlide>
               ))
             }
-          </div>
+          </Swiper>
+        </div>
+      }
+      <div className="rates__text-content">
+        <div className="rates__text-content__left">
+          <h2>
+            Dalli — это...
+          </h2>
+          <p>
+            Dalli — служба доставки для интернет-магазинов и омниритейла.
+          </p>
+          <p>
+            Основные принципы компании — безукоризненное качество и безупречный сервис. 
+          </p>
+        </div>
+        <div className="rates__text-content__right">
+          <span></span>
+          {
+            ratesNumbersArray.map((el, i) => (
+              <div key={i} className="rates__text-content__right__item">
+                <div className="rates__text-content__right__item__header">
+                  {el.header}
+                </div>
+                <div className="rates__text-content__right__item__number">
+                  {el.number}
+                </div>
+              </div>
+            ))
+          }
         </div>
       </div>
     </section>

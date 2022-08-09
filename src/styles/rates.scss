@@ -1,14 +1,7 @@
 section[data-id=rates] {
   margin-bottom: 16rem;
-}
-
-.rates__wrapper {
   width: 100%;
   padding: 0 var(--padding);
-}
-
-.rates__cards__wrapper {
-  width: 100%;
 }
 
 .rates__cards--desktop {
@@ -218,19 +211,30 @@ section[data-id=rates] {
 }
 
 .rates__cards__item__content__mini-cards {
-  display: flex;
-  flex-direction: row-reverse;
-  flex-wrap: wrap;
+  --grid-mini-card-width: 5.6rem;
+  --grid-mini-cards-in-row: 3;
+
+  display: grid;
+  grid-template-columns: repeat(var(--grid-mini-cards-in-row), var(--grid-mini-card-width));
+  grid-auto-flow: dense;
   align-self: flex-end;
-  width: 100%;
   gap: 1.2rem;
+
+  & > &__item {
+    &:nth-of-type(3n+4) {
+      grid-column-end: -1;
+    }
+    &:nth-of-type(3n+5) {
+      grid-column-end: -2;
+    }
+  }
 }
 
 .rates__cards__item__content__mini-cards__item {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 5.6rem;
+  width: 100%;
   height: 3.2rem;
   overflow: hidden;
   border-radius: 1.1rem;
@@ -329,7 +333,7 @@ section[data-id=rates] {
   margin-bottom: 0.8rem;
 }
 
-@media (max-width: 1439px) {
+@media(max-width: 1439px) {
   .rates__cards--desktop {
     max-width: 90.8rem;
     margin: 0 auto;
@@ -412,9 +416,110 @@ section[data-id=rates] {
   }
 }
 
-@media (max-width: 1023px) {
+@media(max-width: 1023px) {
+  section[data-id=rates] {
+    margin: 4rem 0 12rem;
+    padding: 0;
+  }
+
+  .rates__cards--mobile {
+    width: 100%;
+  }
+
+  .swiper-slide {
+    min-width: 37.2rem;
+  }
+
+  .rates__cards__item {  
+    &--gradient-border {
+      max-width: 37.2rem;
+      width: 100%;
+      height: 26.4rem;
+      border-radius: 2.4rem;
+    }
+
+    &--refund {
+      .rates__cards__item__main-image {
+        &:nth-of-type(2) {
+          top: unset;
+          bottom: 8%;
+          left: 24%;
+          width: 11.5rem;
+        }
+        &:nth-of-type(1) {
+          top: unset;
+          bottom: 18%;
+          width: 11.5rem;
+        }
+      }
+    }
+  
+    &--delivery-close {  
+      .rates__cards__item__main-image {
+        top: unset;
+        bottom: 5%;
+        left: 24%;
+        width: 14.2rem;
+      }
+    }
+  
+    &--delivery-offline {  
+      .rates__cards__item__main-image {
+        &:first-of-type {
+          top: unset;
+          bottom: 0;
+          width: 10.4rem;
+
+          img {
+            transform: rotate(180deg);
+            object-position: top;
+          }
+        }
+        &:nth-of-type(2) {
+          bottom: 0%;
+          top: unset;
+          right: -12%;
+          height: 15rem;
+        }
+      }
+    }
+
+    &--delivery-partners {
+      .rates__cards__item__main-image {
+        top: unset;
+        bottom: 10%;
+      }
+    }
+  }
+
+  .rates__cards__item__content {
+    padding: 2.4rem 2rem;
+
+    p {
+      font-size: clamp(1.6rem, 5.6vw, 2.4rem);
+      line-height: 1.4em;
+      margin-top: 0;
+      order: -1;
+    }
+  }
+
+  .rates__cards__item__content__mini-cards {
+    --grid-mini-card-width: 6.4rem;
+    margin-top: auto;
+  }
+
+  .rates__cards__item__content__mini-cards__item {
+    height: 3.6rem;
+  
+    img {
+      min-height: 25%;
+      min-width: 62%;
+    }
+  }
+
   .rates__text-content {
     flex-direction: column;
+    padding: 0 var(--padding);
   }
 
   .rates__text-content__left { 
@@ -445,5 +550,12 @@ section[data-id=rates] {
     &__number {
       font-size: clamp(4rem, 12.4vw, 4.8rem);
     }
+  }
+}
+
+@media(max-width: 427px) {
+  .swiper-slide {
+    min-width: 0;
+    max-width: 100vw;
   }
 }

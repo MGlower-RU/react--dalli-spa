@@ -1,0 +1,231 @@
+section[data-id=features] {
+  margin-bottom: 16rem;
+  padding: 0 var(--padding);
+
+  h2 {
+    margin-bottom: 3.8rem;
+  }
+}
+
+.features__wrapper {
+  max-width: calc(144rem - var(--padding)*2);
+  margin: 0 auto;
+}
+
+.features__cards--desktop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
+.features__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background-color: var(--white);
+  padding: 3.2rem;
+  overflow: hidden;
+
+  &--gradient-border {
+    max-width: 27.4rem;
+    width: 100%;
+    height: 35.4rem;
+    padding: 0.2rem;
+    background: linear-gradient(135deg, rgb(123, 202, 255), rgb(0, 116, 255));
+    border-radius: 3.2rem;
+  }
+
+  & > span {
+    position: absolute;
+    z-index: 0;
+
+    img {
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+
+  & > div, & > p {
+    z-index: 1;
+  }
+
+  &--safe-delivery {
+    background: linear-gradient(135deg, rgb(39, 61, 255), rgb(107, 202, 255)), var(--white);
+
+    & > span {
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 27rem;
+    }
+  }
+
+  &--place-payment {
+    background: linear-gradient(135deg, rgb(69, 180, 255), rgb(2, 111, 240)), var(--white);
+
+    & > span {
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 27rem;
+    }
+  }
+
+  &--free-takeout {
+    background: linear-gradient(135deg, rgb(0, 41, 255), rgb(68, 210, 255)), var(--white);
+
+    & > span {
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 27rem;
+    }
+  }
+
+  &--easy-refunds {
+    background: linear-gradient(135deg, rgb(58, 46, 242), rgb(139, 234, 255)), var(--white);
+
+    & > span {
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 27rem;
+    }
+  }
+
+  p {
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 1.4em;
+    letter-spacing: 0.01em;
+    color: var(--white);
+  }
+}
+
+.features__card__title {
+  font-weight: 800;
+  font-size: 2.2rem;
+  line-height: 1.2em;
+  letter-spacing: 0.01em;
+  color: var(--white);
+  margin-bottom: 0.8rem;
+}
+
+.features__card__additional-items {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem 1rem;
+  margin-top: auto;
+}
+
+.features__card__additional-item {
+  span {
+    font-weight: 700;
+    font-size: 2.2rem;
+    line-height: 1.2em;
+    letter-spacing: 0.01em;
+    color: var(--white);
+  }
+
+  &__name {
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 1.4em;
+    letter-spacing: 0.01em;
+    color: var(--white);
+    margin-top: 0.8rem;
+  }
+}
+
+@media(max-width: 1023px) {  
+  section[data-id=features] {
+    margin-bottom: 12rem;
+    padding: 0;
+  
+    h2 {
+      margin-bottom: 2rem;
+      padding: 0 var(--padding);
+    }
+  }
+
+  .features__cards--mobile {
+    width: 100%;
+  }
+
+  .swiper-slide {
+    min-width: 37.2rem;
+  }
+
+  .features__card {
+    padding: 2rem;
+  
+    &--gradient-border {
+      max-width: none;
+      border-radius: 2.4rem;
+      height: 24rem;
+    }
+
+    &--safe-delivery {  
+      & > span {
+        top: -15%;
+        left: unset;
+        right: -3rem;
+
+        img {
+          -webkit-mask-image: linear-gradient(rgb(0, 0, 0) 0%, rgb(0, 0, 0) 70%, transparent 78%);
+          mask-image: linear-gradient(rgb(0, 0, 0) 0%, rgb(0, 0, 0) 70%, transparent 78%);
+        }
+      }
+    }
+
+    &--place-payment {  
+      & > span {
+        top: -15%;
+        left: unset;
+        right: -3rem;
+      }
+    }
+
+    &--free-takeout {  
+      & > span {
+        top: -15%;
+        left: unset;
+        right: 1rem;
+        width: 23rem;
+      }
+    }
+
+    &--easy-refunds {  
+      & > span {
+        top: -9%;
+        left: unset;
+        right: -1rem;
+        width: 20rem;
+      }
+    }
+
+    & > span {
+      transform: translateX(0);
+    }
+  
+    p {
+      font-size: clamp(1.2rem, 3.3vw, 1.4rem);
+    }
+  }
+  
+  .features__card__title {
+    font-size: clamp(1.9rem, 5.61vw, 2.4rem);
+  }
+  
+  .features__card__additional-item {
+    span {
+      font-size: 2.4rem;
+    }
+  }
+}

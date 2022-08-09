@@ -1,12 +1,4 @@
-section[data-id=main] {
-  background:
-    linear-gradient(rgba(239, 251, 255, 0), rgba(0, 53, 130, .2)),
-    linear-gradient(210deg, rgb(29, 214, 255, 0) 70%, rgba(113, 0, 225, .6)),
-    linear-gradient(50deg, rgba(0, 26, 255), rgb(85, 204, 255) 50%);
-  background-color: black;
-}
-
-.main__wrapper {
+section[data-id=main]  {
   width: 100%;
   display: flex;
   align-items: center;
@@ -14,6 +6,11 @@ section[data-id=main] {
   gap: 2rem;
   overflow: hidden;
   padding: 0 var(--padding);
+  background:
+    linear-gradient(rgba(239, 251, 255, 0), rgba(0, 53, 130, .2)),
+    linear-gradient(210deg, rgb(29, 214, 255, 0) 70%, rgba(113, 0, 225, .6)),
+    linear-gradient(50deg, rgba(0, 26, 255), rgb(85, 204, 255) 50%);
+  background-color: black;
 
   h1 {
     font-family: 'ObjectSans', sans-serif;
@@ -74,7 +71,7 @@ section[data-id=main] {
 }
 
 @media(max-width: 1439px) {
-  .main__wrapper {  
+  section[data-id=main]  {  
     h1 {
       font-size: 6rem;
     }
@@ -96,17 +93,14 @@ section[data-id=main] {
 }
 
 @media(max-width: 1023px) {
-  #main {
+  section[data-id=main]  {
+    flex-direction: column;
+    gap: 4rem;
     background:
       linear-gradient(rgba(239, 251, 255, 0), rgba(0, 53, 130, .4)),
       linear-gradient(210deg, rgb(29, 214, 255, 0) 70%, rgb(113, 0, 225)),
       linear-gradient(135deg, rgba(0, 26, 255), rgb(85, 204, 255) 50%);
     background-color: black;
-  }
-
-  .main__wrapper {
-    flex-direction: column;
-    gap: 4rem;
   
     h1 {
       font-size: 4rem;

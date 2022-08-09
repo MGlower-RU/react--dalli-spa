@@ -34,14 +34,15 @@ export default function ContextComponent(props) {
     },
   ]
 
-  const isMobile = useMediaQuery({ query: '(max-width:1023px)' })
   const isDesktop = useMediaQuery({ query: '(min-width:1440px)' })
+  const isTablet = useMediaQuery({ query: '(max-width:1023px)' })
+  const isMobile = useMediaQuery({ query: '(max-width:427px)' })
 
   return (
     <MainContext.Provider value={{
       currentSlide, setCurrentSlide,
       linksArray,
-      isMobile, isDesktop
+      isDesktop, isTablet, isMobile
     }}>
       {props.children}
     </MainContext.Provider>
