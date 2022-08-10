@@ -12,6 +12,7 @@
 
 body {
   font-family: 'Nominee', sans-serif;
+  overflow-x: hidden;
 
   &.overflow {
     overflow: hidden;
