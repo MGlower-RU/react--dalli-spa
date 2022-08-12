@@ -1,5 +1,11 @@
 import React, { createContext, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
+import { Swiper, SwiperSlide } from "swiper/react"
+import { Grid, Pagination } from "swiper";
+
+import "swiper/css";
+import "swiper/css/grid";
+import "swiper/css/pagination";
 
 export const MainContext = createContext();
 
@@ -42,7 +48,9 @@ export default function ContextComponent(props) {
     <MainContext.Provider value={{
       currentSlide, setCurrentSlide,
       linksArray,
-      isDesktop, isTablet, isMobile
+      isDesktop, isTablet, isMobile,
+      Swiper, SwiperSlide,
+      Grid, Pagination
     }}>
       {props.children}
     </MainContext.Provider>

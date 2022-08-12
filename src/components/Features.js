@@ -1,5 +1,4 @@
-import { useContext } from "react"
-import { Swiper, SwiperSlide } from "swiper/react"
+import React, { useContext, useId } from "react"
 import { MainContext } from './MainContext'
 
 import Phone from '../images/phone.png'
@@ -13,21 +12,43 @@ import Insales from '../images/insales.png'
 import Retail from '../images/retail.png'
 import Apiship from '../images/apiship.png'
 import Codebox from '../images/codebox.png'
+import MTS from '../images/mts.png'
+import CZUM from '../images/czum.png'
+import GoldenApple from '../images/golden_apple.png'
+import Lego from '../images/lego.png'
+import DetskiyMir from '../images/detskiy_mir.png'
+import CaiNiao from '../images/cainiao.png'
+import Pandora from '../images/pandora.png'
+import Henderson from '../images/henderson.png'
+import Karmanov5 from '../images/karmanov5.png'
+import Aliexpress from '../images/aliexpress.png'
+import Sokolov from '../images/sokolov.png'
+import Brandshop from '../images/brandshop.png'
+import PhoneConvenientToGet from '../images/phone_convenient_to_get.png'
+
+import { ReactComponent as PencilConvenientToGet } from '../images/pencil_convenient_to_get.svg'
+import { ReactComponent as BoxConvenientToGet } from '../images/box_convenient_to_get.svg'
+import { ReactComponent as MessageConvenientToGet } from '../images/message_convenient_to_get.svg'
 
 import '../styles/features.scss'
 
 export default function Features() {
-  const { isTablet, isMobile } = useContext(MainContext)
+  const {
+    isDesktop, isTablet, isMobile,
+    Swiper, SwiperSlide
+  } = useContext(MainContext)
 
   return (
     <section data-id="features">
-      <MoreAdvantages isTablet={isTablet} isMobile={isMobile} />
-      <SimpleIntegration isTablet={isTablet} isMobile={isMobile} />
+      <MoreAdvantages isTablet={isTablet} isMobile={isMobile} Swiper={Swiper} SwiperSlide={SwiperSlide} />
+      <SimpleIntegration />
+      <ConvenientToGet />
+      <Clients isDesktop={isDesktop} isTablet={isTablet} isMobile={isMobile} Swiper={Swiper} SwiperSlide={SwiperSlide} />
     </section>
   )
 }
 
-function MoreAdvantages({isMobile, isTablet}) {
+function MoreAdvantages({isMobile, isTablet, Swiper, SwiperSlide}) {
   const moreFeaturesCards = [
     {
       title: 'Безопасная доставка',
@@ -103,7 +124,7 @@ function MoreAdvantages({isMobile, isTablet}) {
   )
 }
 
-function SimpleIntegration({isMobile, isTablet}) {
+function SimpleIntegration() {
   const integrationsArray = [
     {
       title: 'Личный кабинет клиента',
@@ -162,6 +183,121 @@ function SimpleIntegration({isMobile, isTablet}) {
           </div>
         ))
       }
+    </div>
+  )
+}
+
+function ConvenientToGet() {
+  const conveniencesArray = [
+    {
+      title: 'Изменение параметров',
+      description: 'Возможность самостоятельно вносить изменения в заказ (адрес, дата и время доставки)',
+      Image: PencilConvenientToGet,
+      id: 'convenience' + useId()
+    },
+    {
+      title: 'Вся информация о заказе',
+      description: 'Всё, что нужно видеть получателю: номер заказа и статус, информация об отправителе, сумма и способ оплаты, электронный чек',
+      Image: BoxConvenientToGet,
+      id: 'convenience' + useId()
+    },
+    {
+      title: 'Мы на связи',
+      description: 'Оперативная связь со службой поддержки, оценка работы курьера и компании, возможность оставить отзыв',
+      Image: MessageConvenientToGet,
+      id: 'convenience' + useId()
+    },
+  ]
+
+
+  return (
+    <div className="features__convenient-to-get__wrapper">
+      <h2>Удобство для получателей</h2>
+      <p>
+        Полноценный личный кабинет вместо стандартных смс-уведомлений
+      </p>
+      <div className="features__convenient-to-get__content">
+        <div className="features__convenient-to-get__content__phone">
+          <img src={PhoneConvenientToGet} alt="" />
+        </div>
+        <div className="features__convenient-to-get__content__conveniences">
+          {
+            conveniencesArray.map(({title, description, id, Image}) => (
+              <div
+                key={id}
+                className="features__convenient-to-get__content__conveniences__item"
+              >
+                <div
+                  className="features__convenient-to-get__content__conveniences__item__image--gradient-border"
+                >
+                  <div
+                    className="features__convenient-to-get__content__conveniences__item__image"
+                  >
+                    <Image />
+                  </div>
+                </div>
+                <div className="features__convenient-to-get__content__conveniences__item__text-content">
+                  <h4>{title}</h4>
+                  <p>
+                    {description}
+                  </p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function Clients({isTablet, isDesktop, Swiper, SwiperSlide}) {
+  const clientsImages = [
+    MTS, CZUM, GoldenApple, Lego, DetskiyMir, CaiNiao,
+    Pandora, Henderson, Karmanov5, Aliexpress, Sokolov, Brandshop,
+    MTS, CZUM, GoldenApple, Lego, DetskiyMir, CaiNiao,
+    Pandora, Henderson, Karmanov5, Aliexpress, Sokolov, Brandshop,
+  ]
+
+  const { Grid, Pagination } = useContext(MainContext)
+
+  const sliderOptions = isTablet ? 
+    {
+      spaceBetween: 20,
+      slidesPerView: 'auto',
+    }
+    :
+    {
+      spaceBetween: 32,
+      slidesPerView: isDesktop ? 6 : 5,
+      slidesPerGroup: isDesktop ? 6 : 5,
+      modules: [Grid, Pagination],
+      grid: {
+        rows: 2,
+        fill: 'row'
+      },
+      pagination: {
+        clickable: true,
+      }     
+    }
+
+  return (
+    <div className="features__clients__wrapper">
+      <div className="features__clients__bg-image"></div>
+      <h2>Наши клиенты</h2>
+      <div className="features__clients__cards">
+        <Swiper {...sliderOptions}>
+          {
+            clientsImages.map((el, i) => (
+              <SwiperSlide key={i}>
+                <div className="features__clients__card">
+                  <img src={el} alt="" />
+                </div>
+              </SwiperSlide>
+            ))
+          }
+        </Swiper>
+      </div>
     </div>
   )
 }

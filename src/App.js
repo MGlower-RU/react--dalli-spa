@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Main from './components/Main';
 import Rates from './components/Rates';
 
+import "swiper/css";
 import './styles/App.scss';
 
 export default function App() {

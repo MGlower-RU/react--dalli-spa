@@ -2,6 +2,10 @@ section[data-id=rates] {
   margin-bottom: 16rem;
   width: 100%;
   padding: 0 var(--padding);
+
+  .swiper {
+    padding: 0 var(--padding);
+  }
 }
 
 .rates__cards--desktop {
@@ -420,15 +424,16 @@ section[data-id=rates] {
   section[data-id=rates] {
     margin: 4rem 0 12rem;
     padding: 0;
+
+    .swiper-slide {
+      width: 37.2rem;
+    }
   }
 
   .rates__cards--mobile {
     width: 100%;
   }
 
-  .swiper-slide {
-    min-width: 37.2rem;
-  }
 
   .rates__cards__item {  
     &--gradient-border {
@@ -555,7 +560,6 @@ section[data-id=rates] {
 
 @media(max-width: 427px) {
   .swiper-slide {
-    min-width: 0;
     max-width: 100vw;
   }
 }
