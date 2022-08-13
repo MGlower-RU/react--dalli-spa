@@ -3,6 +3,7 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 import Main from './components/Main';
 import Rates from './components/Rates';
+import Contacts from './components/Contacts';
 
 import "swiper/css";
 import './styles/App.scss';
@@ -15,6 +16,7 @@ export default function App() {
         <Main />
         <Rates />
         <Features />
+        <Contacts />
         <Footer />
       </div>
     </>

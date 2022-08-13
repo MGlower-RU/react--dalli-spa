@@ -787,6 +787,25 @@ section[data-id=features] {
     flex-wrap: wrap;
   }
 
+  .features__simple-integration__card {
+    &--personal-account, &--api {
+      height: 16.8rem;
+    }
+
+    &--personal-account {
+      .features__simple-integration__card__image {
+        height: 10rem;
+        bottom: 5%;
+      }
+    }
+    &--api {
+      .features__simple-integration__card__image {
+        height: 9rem;
+        bottom: 10%;
+      }
+    }
+  }
+
   .features__simple-integration__card__title {
     text-align: center;
   }
