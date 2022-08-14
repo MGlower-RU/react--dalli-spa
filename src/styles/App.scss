@@ -1,0 +1,17 @@
+.swiper-pagination {
+  bottom: 0;
+}
+
+.swiper-pagination-bullet {
+  vertical-align: middle;
+  width: 0.6rem;
+  height: 0.6rem;
+  backdrop-filter: blur(8rem);
+
+  &-active {
+    width: 0.8rem;
+    height: 0.8rem;
+    padding: 0;
+    backdrop-filter: none;
+  }
+}
