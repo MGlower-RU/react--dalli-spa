@@ -93,7 +93,7 @@ section[id=main]  {
 }
 
 @media(max-width: 1023px) {
-  section[ud=main]  {
+  section[id=main]  {
     flex-direction: column;
     gap: 4rem;
     background:
