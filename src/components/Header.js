@@ -12,20 +12,8 @@ export default function Header() {
   const navRef = useRef(null)
   const headerRef = useRef(null)
 
-  const {
-    currentSlide,
-    setCurrentSlide,
-    linksArray
-  } = useContext(MainContext)
+  const { linksArray } = useContext(MainContext)
   const [menuOpen, setMenuOpen] = useState(false)
-
-  useEffect(() => {
-    [...navRef.current.children].forEach(el => {
-      const elLink = el.firstElementChild
-      elLink.dataset.link === currentSlide ? elLink.classList.add('active-link') : elLink.classList.remove('active-link')
-    })
-    window.location.hash = currentSlide
-  }, [currentSlide])
 
   useEffect(() => {
     window.addEventListener('scroll', scrollHandle)
@@ -43,7 +31,6 @@ export default function Header() {
       const headerEl = headerRef.current.firstElementChild
       colorsToChange.includes(bgColor) ? headerEl.classList.add('header--white') : headerEl.classList.remove('header--white')
     }
-
     return () => window.removeEventListener('scroll', scrollHandle)
   }, [])
 
@@ -86,11 +73,15 @@ export default function Header() {
             {
               linksArray.map(({name, id, link}) => (
                 <li key={id}>
-                  <a
-                    href={`#${link}`}
-                    data-link={link}
-                    onClick={() => setCurrentSlide(link)}
-                  >{name}</a>
+                  <Link
+                    activeClass="active"
+                    to={link}
+                    spy={true}
+                    hashSpy={true}
+                    smooth={true}
+                    offset={-20}
+                    duration={500}
+                  >{name}</Link>
                 </li>
               ))
             }

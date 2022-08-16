@@ -68,7 +68,7 @@ export default function Rates() {
   ]
 
   return (
-    <section data-id="rates">
+    <section id="rates">
       {
         !isTablet ?
         <div className="rates__cards--desktop">

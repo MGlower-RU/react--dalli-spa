@@ -188,7 +188,7 @@ export default function Tariffs() {
   }, [])
 
   return (
-    <section data-id='tariffs' ref={sectionRef}>
+    <section id='tariffs' ref={sectionRef}>
       <h2>
         Тарифы доставки
       </h2>

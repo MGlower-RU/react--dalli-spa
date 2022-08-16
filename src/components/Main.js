@@ -1,15 +1,16 @@
 import { useContext } from 'react';
+import { Link } from 'react-scroll';
 
-import {ReactComponent as Map} from '../images/map.svg';
+import { ReactComponent as Map } from '../images/map.svg';
 
 import '../styles/main.scss'
 import { MainContext } from './MainContext';
 
 export default function Main() {
-  const { setCurrentSlide, isTablet } = useContext(MainContext)
+  const { isTablet } = useContext(MainContext)
 
   return (
-    <section data-id="main">
+    <section id="main">
       <div className="main__text-content">
         <h3>
           Доставка интернет-заказов
@@ -31,14 +32,13 @@ export default function Main() {
             и Ярославль от 205 рублей
           </p>
         }
-        <a
+        <Link
           className='button button--white'
-          href="#contacts"
-          data-link='contacts'
-          onClick={e => setCurrentSlide(e.target.dataset.link)}
-        >
-          Отправить заявку
-        </a>
+          to='contacts'
+          smooth={true}
+          offset={-20}
+          duration={500}
+        >Отправить заявку</Link>
       </div>
       <div className="main__image">
         <Map />

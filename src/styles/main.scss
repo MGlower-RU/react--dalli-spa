@@ -1,4 +1,4 @@
-section[data-id=main]  {
+section[id=main]  {
   width: 100%;
   display: flex;
   align-items: center;
@@ -71,7 +71,7 @@ section[data-id=main]  {
 }
 
 @media(max-width: 1439px) {
-  section[data-id=main]  {  
+  section[id=main]  {  
     h1 {
       font-size: 6rem;
     }
@@ -93,7 +93,7 @@ section[data-id=main]  {
 }
 
 @media(max-width: 1023px) {
-  section[data-id=main]  {
+  section[ud=main]  {
     flex-direction: column;
     gap: 4rem;
     background:

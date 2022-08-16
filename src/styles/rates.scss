@@ -1,5 +1,4 @@
-section[data-id=rates] {
-  margin-bottom: 16rem;
+section[id=rates] {
   width: 100%;
   padding: 0 var(--padding);
 
@@ -421,8 +420,8 @@ section[data-id=rates] {
 }
 
 @media(max-width: 1023px) {
-  section[data-id=rates] {
-    margin: 4rem 0 12rem;
+  section[id=rates] {
+    margin-top: 4rem;
     padding: 0;
 
     .swiper-slide {

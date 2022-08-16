@@ -39,7 +39,7 @@ export default function Features() {
   } = useContext(MainContext)
 
   return (
-    <section data-id="features">
+    <section id="features">
       <MoreAdvantages isTablet={isTablet} isMobile={isMobile} Swiper={Swiper} SwiperSlide={SwiperSlide} />
       <SimpleIntegration />
       <ConvenientToGet />

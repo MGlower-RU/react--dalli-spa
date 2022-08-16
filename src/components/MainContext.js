@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Grid, Pagination } from "swiper";
@@ -10,8 +10,6 @@ import "swiper/css/pagination";
 export const MainContext = createContext();
 
 export default function ContextComponent(props) {
-  const [currentSlide, setCurrentSlide] = useState(window.location?.hash.slice(1) ?? 'main')
-
   const linksArray = [
     {
       name: 'Главная',
@@ -46,7 +44,6 @@ export default function ContextComponent(props) {
 
   return (
     <MainContext.Provider value={{
-      currentSlide, setCurrentSlide,
       linksArray,
       isDesktop, isTablet, isMobile,
       Swiper, SwiperSlide,

@@ -4,7 +4,7 @@ import '../styles/contacts.scss'
 
 export default function Contacts() {
   return (
-    <section data-id="contacts">
+    <section id="contacts">
       <h2>
         Начните доставлять<br/>
         уже сегодня

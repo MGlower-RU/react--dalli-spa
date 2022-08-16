@@ -1,8 +1,8 @@
-section[data-id=tariffs] {
+section[id=tariffs] {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-bottom: 16rem;
+  padding-top: 16rem;
 
   & > h2 {
     text-align: center;
@@ -103,7 +103,7 @@ section[data-id=tariffs] {
 }
 
 @media(min-width: 1024px) {
-  section[data-id=tariffs] {
+  section[id=tariffs] {
     .swiper-slide {
       &:not(.swiper-slide-active) {
         .tariffs__item__wrapper {
@@ -141,9 +141,9 @@ section[data-id=tariffs] {
 }
 
 @media(max-width: 1023px) {
-  section[data-id=tariffs] {
-    margin-bottom: 12rem;
-  
+  section[id=tariffs] {
+    padding-top: 12rem;
+
     & > h2 {
       margin-bottom: 1.2rem;
     }
