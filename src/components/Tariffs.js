@@ -1,14 +1,16 @@
-import { useId } from "react";
-import { useContext } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { MainContext } from "./MainContext";
+import { useId, useState, useContext, useEffect, useRef } from "react"
+import { Swiper, SwiperSlide } from "swiper/react"
+import { MainContext } from "./MainContext"
+import Form from "./Form"
 
 import '../styles/tariffs.scss'
-import Form from "./Form";
-import { useState } from "react";
+
+import {ReactComponent as Arrow} from '../images/arrow_down.svg'
 
 export default function Tariffs() {
-  const { isMobile, Pagination } = useContext(MainContext)
+  const { isTablet, Pagination } = useContext(MainContext)
+
+  const sectionRef = useRef(null)
 
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -18,7 +20,6 @@ export default function Tariffs() {
       id: 'tariff' + useId(),
       table: [
         [
-          "",
           "От 200 шт/мес",
           "От 500 шт/мес",
           "От 1500 шт/мес",
@@ -59,7 +60,6 @@ export default function Tariffs() {
       id: 'tariff' + useId(),
       table: [
         [
-          "",
           "От 200 шт/мес",
           "От 500 шт/мес",
           "От 1500 шт/мес",
@@ -100,7 +100,6 @@ export default function Tariffs() {
       id: 'tariff' + useId(),
       table: [
         [
-          "",
           "От 200 шт/мес",
           "От 500 шт/мес",
           "От 1500 шт/мес",
@@ -138,7 +137,7 @@ export default function Tariffs() {
     },
   ]
 
-  const swiperOptions = isMobile ?
+  const swiperOptions = isTablet ?
   {
     spaceBetween: 20,
     slidesPerView: 'auto',
@@ -168,14 +167,28 @@ export default function Tariffs() {
     }
   }
 
-  function tableUnhighlight(e) {
+  function tableUnhighlight() {
     [...document.getElementsByTagName('td')].forEach(el => {
       el.style.backgroundColor = ''
     });
   }
 
+  function accordionHandle(e) {
+    e.preventDefault();
+    e.target.closest('.swiper-slide-active') &&
+    [...e.target.closest('.tariffs__item__accordion__wrapper').children].forEach(el => (
+      el === e.target.closest('.tariffs__item__accordion') ? el.classList.add('tariffs__item__accordion--open') : el.classList.remove('tariffs__item__accordion--open')
+    ))
+  }
+
+  useEffect(() => {
+    [...sectionRef.current.querySelectorAll('.tariffs__item__accordion__wrapper')].forEach(el => (
+      el.firstChild.classList.add('tariffs__item__accordion--open')
+    ))
+  }, [])
+
   return (
-    <section data-id='tariffs'>
+    <section data-id='tariffs' ref={sectionRef}>
       <h2>
         Тарифы доставки
       </h2>
@@ -195,9 +208,35 @@ export default function Tariffs() {
                   <div className="tariffs__item__title">
                     {name}
                   </div>
-                  {isMobile ?
-                    <div className="">
-
+                  {isTablet ?
+                    <div className="tariffs__item__accordion__wrapper">
+                      {table[0].map((el, ind) => (
+                        <div key={ind} className="tariffs__item__accordion">
+                          <a
+                            href="/"
+                            className="tariffs__item__accordion__btn"
+                            onClick={accordionHandle}
+                          >
+                            <div className="tariffs__item__accordion__btn__image">
+                              <Arrow/>
+                            </div>
+                            <span>{el}</span>
+                          </a>
+                          <ul className="tariffs__item__accordion__list">
+                            {table.map((el, i) => (
+                              !Array.isArray(el) &&
+                              <li key={i}>
+                                <div className="tariffs__item__accordion__list__amount">
+                                  {el.amount}
+                                </div>
+                                <div className="tariffs__item__accordion__list__price">
+                                  {el.prices[ind]}
+                                </div>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
                     </div>
                     :
                     <table className="tariffs__item__table">
@@ -206,6 +245,7 @@ export default function Tariffs() {
                           table.map((el, i) => (
                             Array.isArray(el) ?
                             <tr key={i}>
+                              <td></td>
                               {el.map((el, i) => (
                                 <td key={i}>{el}</td>
                               ))}
@@ -250,6 +290,7 @@ export default function Tariffs() {
       { menuOpen &&
         <div className="overlay">
           <Form
+            formFullsize={true}
             formHeader={true}
             formParagraph={true}
             completeButton={true}

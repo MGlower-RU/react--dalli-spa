@@ -1,4 +1,6 @@
 import { useContext, useEffect, useRef, useState } from 'react'
+import { Link } from 'react-scroll'
+
 import { ReactComponent as Logo } from '../images/logo.svg'
 import { ReactComponent as Phone } from '../images/phone.svg'
 

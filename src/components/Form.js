@@ -4,7 +4,7 @@ import { ReactComponent as Mark } from '../images/contacts_mark.svg'
 
 import '../styles/form.scss'
 
-export default function Form({formHeader, formParagraph, completeButton, completeButtonState}) {
+export default function Form({formFullsize, formHeader, formParagraph, completeButton, completeButtonState}) {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [number, setNumber] = useState('')
@@ -25,11 +25,26 @@ export default function Form({formHeader, formParagraph, completeButton, complet
     }
   }
 
+  function closeForm() {
+    setIsFormSent(false)
+    setName('')
+    setEmail('')
+    setNumber('')
+    completeButtonState(false)
+    document.body.classList.remove('overflow')
+  }
+
   return (
     <form
-      className="contacts__form"
+      className={`contacts__form${formFullsize ? ' contacts__form--fullsize' : ''}`}
       onSubmit={formSubmitHandle}
     >
+      {formFullsize &&
+        <div
+          className="contacts__form__close"
+          onClick={closeForm}
+        ></div>
+      }
       {
         isFormSent ?
           <div className="contacts__form__completed">
@@ -49,10 +64,7 @@ export default function Form({formHeader, formParagraph, completeButton, complet
               completeButton &&
               <button
                 className="button"
-                onClick={() => {
-                  completeButtonState(state => !state)
-                  document.body.classList.remove('overflow')
-                }}
+                onClick={closeForm}
               >
                 Готово
               </button>
